@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Hifz Progress Tracker — ZaryahPlus</title>
+  <meta name="description" content="Log your Quran memorisation progress. Record your name and current Juz simply and beautifully." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER — sticky branding bar
+       ===================================================== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <span class="brand-icon" aria-hidden="true">📖</span>
+      <span class="brand-name">ZaryahPlus</span>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       HERO — page title
+       ===================================================== -->
+  <section class="hero" aria-labelledby="page-title">
+    <h1 id="page-title" class="hero-title">Hifz Progress Tracker</h1>
+    <p class="hero-subtitle">
+      Record your Quran memorisation progress.<br />
+      Enter your name and your current Juz below.
+    </p>
+  </section>
+
+  <!-- =====================================================
+       MAIN — single centered form card
+       ===================================================== -->
+  <main class="main-content" id="main">
+    <section class="card form-card" aria-label="Submit your Hifz progress">
+
+      <p class="card-eyebrow">Log Your Progress</p>
+
+      <form id="add-student-form" novalidate>
+
+        <!-- Student Name -->
+        <div class="field-group">
+          <label class="field-label" for="student-name">Your Name</label>
+          <input
+            class="field-input"
+            type="text"
+            id="student-name"
+            name="name"
+            placeholder="e.g. Ahmed Al-Rashid"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        <!-- Current Juz Dropdown -->
+        <div class="field-group">
+          <label class="field-label" for="student-juz">Current Juz</label>
+          <div class="select-wrapper">
+            <select class="field-select" id="student-juz" name="juz" required>
+              <option value="" disabled selected>Select Juz (1 – 30)</option>
+            </select>
+            <span class="select-arrow" aria-hidden="true">▾</span>
+          </div>
+        </div>
+
+        <!-- Feedback area -->
+        <div class="feedback-area" id="feedback-area" role="alert" aria-live="polite"></div>
+
+        <!-- Submit button -->
+        <button class="btn btn-primary" type="submit" id="add-btn">
+          <span class="btn-text">Add Progress</span>
+          <span class="btn-icon" aria-hidden="true">＋</span>
+        </button>
+
+      </form>
+    </section>
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <p>ZaryahPlus Internal Tool &nbsp;·&nbsp; Hifz Tracker v1.0</p>
+  </footer>
+
+  <!-- Populate Juz dropdown 1–30 -->
+  <script>
+    (function () {
+      const sel = document.getElementById('student-juz');
+      for (let i = 1; i <= 30; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `Juz ${i}`;
+        sel.appendChild(opt);
+      }
+    })();
+  </script>
+
+  <!-- Phase 5: full logic lives here -->
+  <script src="script.js"></script>
+
+</body>
+</html>
